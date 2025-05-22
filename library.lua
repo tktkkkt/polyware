@@ -1,25 +1,25 @@
-local framework = loadstring(game:HttpGet("https://raw.githubusercontent.com/ryleee0939/celestialmain/refs/heads/main/framework.lua", true))();
+local framework = loadstring(game:HttpGet("https://raw.githubusercontent.com/tktkkkt/polyware/refs/heads/main/framework.lua", true))();
 --
 do -- checks
     do -- folders
-        if (not isfolder("Celestial")) then
-            makefolder("Celestial");
+        if (not isfolder("PolyWare")) then
+            makefolder("PolyWare");
         end;
         --
         if (not isfolder("CONFIGS")) then
             makefolder("CONFIGS");
         end;
         --
-        if (not isfolder("Celestial/MENU")) then
-            makefolder("Celestial/MENU");
+        if (not isfolder("PolyWare/MENU")) then
+            makefolder("PolyWare/MENU");
         end;
         --
-        if (not isfolder("Celestial/MENU/FONTS")) then
-            makefolder("Celestial/MENU/FONTS");
+        if (not isfolder("PolyWare/MENU/FONTS")) then
+            makefolder("PolyWare/MENU/FONTS");
         end;
         --
-        if (not isfolder("Celestial/LOADER/IMAGES")) then
-            makefolder("Celestial/LOADER/IMAGES");
+        if (not isfolder("PolyWare/LOADER/IMAGES")) then
+            makefolder("PolyWare/LOADER/IMAGES");
         end;
     end;
 end;
@@ -59,31 +59,31 @@ local get_mouse = lplr:GetMouse();
 Instance_manager = framework.modules.instance_manager
 signals = framework.modules.signals
 -- fonts
-local create_font = loadstring(game:HttpGet("https://raw.githubusercontent.com/ryleee0939/celestialmain/refs/heads/main/fonts.lua"))();
+local create_font = loadstring(game:HttpGet("https://raw.githubusercontent.com/tktkkkt/polyware/refs/heads/main/fonts.lua"))();
 local fonts = {
-    smallest_pixel = create_font:register("Celestial/MENU/FONTS", {
+    smallest_pixel = create_font:register("PolyWare/MENU/FONTS", {
         name = "smallest pixel",
         weight = "regular",
         style = "normal",
-        link = "https://raw.githubusercontent.com/judghementday2/bypass/refs/heads/main/smallest_pixel-7.ttf",
+        link = "https://raw.githubusercontent.com/tktkkkt/polyware/refs/heads/main/smallest_pixel-7.ttf",
     }),
-    templeos = create_font:register("Celestial/MENU/FONTS", {
+    templeos = create_font:register("PolyWare/MENU/FONTS", {
         name = "templeos",
         weight = "regular",
         style = "normal",
-        link = "https://raw.githubusercontent.com/ryleee0939/celestialmain/refs/heads/main/smallest_pixel-7.ttf",
+        link = "https://raw.githubusercontent.com/tktkkkt/polyware/refs/heads/main/smallest_pixel-7.ttf",
     }),
-    proggytiny = create_font:register("Celestial/MENU/FONTS", {
+    proggytiny = create_font:register("PolyWare/MENU/FONTS", {
         name = "proggytiny",
         weight = "regular",
         style = "normal",
-        link = "https://raw.githubusercontent.com/ryleee0939/celestialmain/refs/heads/main/ProggyTiny.ttf",
+        link = "https://raw.githubusercontent.com/tktkkkt/polyware/refs/heads/main/ProggyTiny.ttf",
     }),
-    medodica = create_font:register("Celestial/MENU/FONTS", {
+    medodica = create_font:register("PolyWare/MENU/FONTS", {
         name = "medodica",
         weight = "regular",
         style = "normal",
-        link = "https://raw.githubusercontent.com/judghementday2/bypass/refs/heads/main/MedodicaRegular.ttf",
+        link = "https://raw.githubusercontent.com/tktkkkt/polyware/refs/heads/main/MedodicaRegular.ttf",
     }),
 };
 --
@@ -347,7 +347,7 @@ do -- other
     blur_effect = cloneref(Instance.new("BlurEffect", lighting));
     black_bg = Instance_manager.new("TextButton", {
         Name = "bg_effect";
-        Text = "CELESTIAL.PUB";
+        Text = "PolyWare.PUB";
         AutoButtonColor = false;
         Size = udim2(9999, 0, 9999, 0);
         BorderColor3 = UI.themes.outline;
@@ -1043,7 +1043,7 @@ do -- menu
     do -- window
         function UI:window(options)
             local window = {
-                name = (options.Name or options.name or " Celestial");
+                name = (options.Name or options.name or " PolyWare");
                 size = (options.Size or options.size or udim2(0, 750, 0, 500));
                 position = (options.position == "left" and Enum.TextXAlignment.Left) or (options.position == "center" and Enum.TextXAlignment.Center) or (options.position == "right" and Enum.TextXAlignment.Right) or Enum.TextXAlignment.Left,
                 dragging = { false, udim2(0, 0, 0, 0) };
@@ -3173,7 +3173,7 @@ do -- open/close
     end);
 end;
 --
-local watermark = UI:watermark({ name = 'Celestial' });
+local watermark = UI:watermark({ name = 'PolyWare' });
 
 function UI:Configs(tab)
     tab:textbox({ flag = "cfg_name", name = "config name" });
@@ -3293,11 +3293,11 @@ framework.modules.signals.connection(run_service["RenderStepped"], function(dt)
             local accent = string.format("#%02X%02X%02X", accent_color.R * 255, accent_color.G * 255, accent_color.B * 255);
             local avg_fps = fps:GetValue();
             local avg_ping = math.floor(ping:GetValue());
-            local display_game = "V2";
-            local user_type = (LPH_OBFUSCATED and "Public") or "Developer";  -- Set the user type here
+            local display_game = "V1";
+            local user_type = (LPH_OBFUSCATED and "Public") or "Free";  -- Set the user type here
     
             watermark:update_text(string.format(
-                'Celestial | PING <font color="%s">%d</font> | FPS <font color="%s">%d</font> | Build <font color="%s">%s</font> | User <font color="%s">%s</font>', 
+                'PolyWare | PING <font color="%s">%d</font> | FPS <font color="%s">%d</font> | Build <font color="%s">%s</font> | User <font color="%s">%s</font>', 
                 accent, avg_ping, accent, avg_fps, accent, display_game, accent, user_type
             ));
         end;
